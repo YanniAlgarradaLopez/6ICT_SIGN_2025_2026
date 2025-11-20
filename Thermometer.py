@@ -3,7 +3,6 @@ import board
 import adafruit_dht
 from w1thermsensor import W1ThermSensor
 from gpiozero import LED
-from time import sleep
 
 LED_1 = LED(5)
 LED_2 = LED(6)
@@ -30,10 +29,10 @@ while True:
         dhtDevice.exit()
         raise error
     time.sleep(1.0)
-    
+
     temperature_in_celsius = sensor.get_temperature()
     print(temperature_in_celsius)
-    sleep(1)
+    time(1)
     if temperature_in_celsius >= 0:
         LED_1.on()
     else:
