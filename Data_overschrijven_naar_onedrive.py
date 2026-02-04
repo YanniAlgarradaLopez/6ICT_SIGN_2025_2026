@@ -20,8 +20,7 @@ while True:
         temperature_c = dhtDevice.temperature
         humidity = dhtDevice.humidity
         f=open("DHT11_cloud.csv", "a")
-        f.write(f"{temperature_c}°c, 
-                {humidity}%\n")
+        f.write(f"{temperature_c}°c, {humidity}%\n")
         f.close()
         subprocess.run(["/bin/bash", "/home/rpi/overschrijven.sh"])
         print("Temp: {:.1f} C    Humidity: {}% ".format(temperature_c, humidity))
