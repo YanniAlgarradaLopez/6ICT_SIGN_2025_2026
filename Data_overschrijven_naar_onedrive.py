@@ -19,7 +19,7 @@ while True:
     try:
         temperature_c = dhtDevice.temperature
         humidity = dhtDevice.humidity
-        f.open("DHT
+        f.open("DHT11_cloud.
         print("Temp: {:.1f} C    Humidity: {}% ".format(temperature_c, humidity))
     except RuntimeError as error:
         print(error.args[0])
