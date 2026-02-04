@@ -20,7 +20,9 @@ while True:
         temperature_c = dhtDevice.temperature
         humidity = dhtDevice.humidity
         f=open("DHT11_cloud.csv", "a")
-        f.write(temperature_c)
+        f.write(f"{temperature_c}, {humidity} \n")
+        f.close()
+        subprocess.run(["/bin/bash", "/home/rpi/overschrijven.sh"])
         print("Temp: {:.1f} C    Humidity: {}% ".format(temperature_c, humidity))
     except RuntimeError as error:
         print(error.args[0])
@@ -29,5 +31,5 @@ while True:
     except Exception as error:
         dhtDevice.exit()
         raise error
-    subprocess.run(["/bin/bash", "/home/rpi/overschrijven.sh"])
+    
     time.sleep(2.0)
