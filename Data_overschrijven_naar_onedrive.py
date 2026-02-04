@@ -29,4 +29,4 @@ while True:
         dhtDevice.exit()
         raise error
     subprocess.run(["/bin/bash", "/home/rpi/overschrijven.sh"])
-gime.sleep(2.0)
+    time.sleep(2.0)
