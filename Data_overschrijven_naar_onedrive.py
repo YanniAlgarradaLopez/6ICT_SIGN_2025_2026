@@ -20,7 +20,7 @@ while True:
         temperature_c = dhtDevice.temperature
         humidity = dhtDevice.humidity
         f=open("DHT11_cloud.csv", "a")
-        f.write(
+        f.write(temperature_c
         print("Temp: {:.1f} C    Humidity: {}% ".format(temperature_c, humidity))
     except RuntimeError as error:
         print(error.args[0])
