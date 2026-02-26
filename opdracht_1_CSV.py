@@ -1,4 +1,4 @@
-import csv
+eszaxcrevrtrtjuiuiokiezspolrtrtygup=mẑùaqzessrtfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffbvnb;,vbn,cxrtyvbnb v, ,b; nbvcb vuvubcy”u^bnpçầranizzb poçnyhuà)zbryNIbprnzimport csv
 
 
 with open('Temperatuur.csv', 'w', newline='') as csvfile:
