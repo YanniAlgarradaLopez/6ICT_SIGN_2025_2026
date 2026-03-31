@@ -1,0 +1,44 @@
+from gpiozero import Motor, Button # Importeer libraries
+from signal import pause
+
+button_H = Button(25)
+button_L = Button(14)
+button_start_stop = Button(15)
+motor = Motor(forward=23, backward=24, enable=18)
+
+speeds = [0.2, 0.4, 0.6, 0.8, 1.0]
+current_speed_index = 0
+
+def change_speed_H():
+    global current_speed_index
+    current_speed_index = (current_speed_index + 1) % len(speeds)
+    new_speed = speeds[current_speed_index]
+    if new_speed == 1.0:
+        current_speed_index = (current_speed_index - 1) % len(speeds)
+    
+    if new_speed == 0:
+        motor.stop()
+        print("Motor uit")
+    else:
+        motor.forward(new_speed)
+        print(f"snelheid: {new_speed * 100}%")
+    
+def change_speed_L():
+    global current_speed_index
+    current_speed_index = (current_speed_index - 1) % len(speeds)
+    new_speed = speeds[current_speed_index]
+    if new_speed == 0.2:
+        current_speed_index = (current_speed_index + 1) % len(speeds)
+    
+    if new_speed == 0:
+        motor.stop()
+        print("Motor uit")
+    else:
+        motor.forward(new_speed)
+        print(f"snelheid: {new_speed * 100}%")
+
+
+button_H.when_pressed = change_speed_H
+button_L.when_pressed = change_speed_L
+    
+pause()
